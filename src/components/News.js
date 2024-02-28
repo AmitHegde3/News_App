@@ -32,52 +32,6 @@ export class News extends Component {
         "Sign up for CNNs Stress, But Less newsletter. Our six-part mindfulness guide will inform and inspire you to reduce stress while learning how to harness it.\r\nMany young people have reported having poo… [+6536 chars]",
     },
     {
-      source: { id: null, name: "[Removed]" },
-      author: null,
-      title: "[Removed]",
-      description: "[Removed]",
-      url: "https://removed.com",
-      urlToImage: null,
-      publishedAt: "1970-01-01T00:00:00Z",
-      content: "[Removed]",
-    },
-    {
-      source: { id: "usa-today", name: "USA Today" },
-      author: "Safid Deen",
-      title:
-        "Inter Miami vs. LA Galaxy score: Full recap with every Messi highlight - USA TODAY",
-      description:
-        "Lionel Messi rescued Inter Miami late against the Los Angeles Galaxy, earning a late draw on the road. Take a look at the game's highlights.",
-      url: "https://www.usatoday.com/story/sports/soccer/2024/02/25/inter-miami-la-galaxy-live-stream-updates-stats-highlights/72737101007/",
-      urlToImage:
-        "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/02/26/USAT/72742165007-usatsi-22621599.jpg?crop=2800,1575,x59,y218&width=2800&height=1575&format=pjpg&auto=webp",
-      publishedAt: "2024-02-26T04:22:12Z",
-      content:
-        "The Los Angeles Galaxy were five minutes away from beating Lionel Messi and Inter Miami.\r\nBut it was enough time for the worlds greatest player to come to Inter Miamis rescue and make his mark in Los… [+14884 chars]",
-    },
-    {
-      source: { id: "reuters", name: "Reuters" },
-      author: "Reuters",
-      title:
-        "Taiwan ally Tuvalu names Feleti Teo as new prime minister - Reuters",
-      description: null,
-      url: "https://www.reuters.com/world/asia-pacific/tuvalu-name-new-prime-minister-monday-2024-02-25/",
-      urlToImage: null,
-      publishedAt: "2024-02-26T03:48:00Z",
-      content: null,
-    },
-    {
-      source: { id: "axios", name: "Axios" },
-      author: "Axios",
-      title:
-        "U.S. airman set himself on fire outside Israeli Embassy in D.C. - Axios",
-      description: null,
-      url: "https://www.axios.com/2024/02/25/man-set-himself-on-fire-israel-embassy-dc",
-      urlToImage: null,
-      publishedAt: "2024-02-26T03:33:45Z",
-      content: null,
-    },
-    {
       source: { id: "espn", name: "ESPN" },
       author: null,
       title:
@@ -275,7 +229,7 @@ export class News extends Component {
     // console.log("Hello this is a constrcutor");
     this.state = {
       articles: this.articles,
-      laoding:false
+      loading: false,
     };
   }
 
@@ -284,15 +238,18 @@ export class News extends Component {
       <div className="container my-3">
         <h2>News Nuggets - Top Headlines</h2>
         <div className="row">
-          <div className="col-md-4">
-          <NewsItem title="Title 1" description="Lorem epsum" imageUrl="https://www.hollywoodreporter.com/wp-content/uploads/2024/02/MCDOPPE_UV016-copy.jpg?w=1024"/>
-          </div>
-          <div className="col-md-4">
-          <NewsItem title="Title 1" description="Lorem epsum" />
-          </div>
-          <div className="col-md-4">
-          <NewsItem title="Title 1" description="Lorem epsum" />
-          </div>
+          {this.state.articles.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title.slice(0, 45)}
+                  description={element.description.slice(0, 88)}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
