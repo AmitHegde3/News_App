@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 
+
 export class News extends Component {
 
   static defaultProps = {
@@ -78,7 +79,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h2 className="text-center">News Nuggets - Top Headlines</h2>
+        <h2 className="text-center">{ this.props.headline}</h2>
         {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
