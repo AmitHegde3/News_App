@@ -15,15 +15,23 @@ export class News extends Component {
     pageSize: PropTypes.number,
     category: PropTypes.string,
   };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     // console.log("Hello this is a constrcutor");
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+
+    document.title = `${this.capitalize(this.props.category)} - News Nuggets`;
   }
+
+  capitalize = (str) => {
+    if (!str) return "";
+
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a4d0894b6a6f483b940c71817d4b97d6&page=${this.state.page}&pageSize=${this.props.pageSize}`;
