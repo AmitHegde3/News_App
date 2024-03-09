@@ -7,6 +7,7 @@ import News from "./components/News";
 
 // News key="" Nugget
 export default class App extends Component {
+  pSize = 9;
   render() {
     return (
       <div>
@@ -19,7 +20,7 @@ export default class App extends Component {
               element={
                 <News
                   key="general"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"general"}
                   headline={"News Nuggets - Top Headlines"}
@@ -32,7 +33,7 @@ export default class App extends Component {
               element={
                 <News
                   key="business"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"business"}
                   headline={"News Nuggets - Business"}
@@ -46,7 +47,7 @@ export default class App extends Component {
               element={
                 <News
                   key="entertainment"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"entertainment"}
                   headline={"News Nuggets - Enterntainement"}
@@ -59,7 +60,7 @@ export default class App extends Component {
               element={
                 <News
                   key="health"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"health"}
                   headline={"News Nuggets - Health"}
@@ -72,7 +73,7 @@ export default class App extends Component {
               element={
                 <News
                   key="science"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"science"}
                   headline={"News Nuggets - Science"}
@@ -85,7 +86,7 @@ export default class App extends Component {
               element={
                 <News
                   key="sports"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"sports"}
                   headline={"News Nuggets - Sports"}
@@ -98,7 +99,7 @@ export default class App extends Component {
               element={
                 <News
                   key="technology"
-                  pageSize={6}
+                  pageSize={this.pSize}
                   country={"us"}
                   category={"technology"}
                   headline={"News Nuggets - Technology"}
