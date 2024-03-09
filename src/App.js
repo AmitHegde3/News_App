@@ -1,38 +1,36 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import LoadingBar from 'react-top-loading-bar'
+import LoadingBar from "react-top-loading-bar";
 
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 
-
 // News key="" Nugget
 export default class App extends Component {
   pSize = 9;
+  apiKey = process.env.REACT_APP_NEWS_API;
   state = {
-    progress: 0
-  }
+    progress: 0,
+  };
   setProgress = (progress) => {
     this.setState({
-      progress : progress
-    })
-  }
+      progress: progress,
+    });
+  };
   render() {
     return (
       <div>
         <Navbar />
-        <LoadingBar
-        color='#f11946'
-        progress={this.state.progress}
-        height = {4}
-      />
+        <LoadingBar color="#f11946" progress={this.state.progress} height={4} />
         <Routes>
           <Route exact path="/">
             <Route
               index
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="general"
                   pageSize={this.pSize}
                   country={"us"}
@@ -45,7 +43,9 @@ export default class App extends Component {
               exact
               path="business"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="business"
                   pageSize={this.pSize}
                   country={"us"}
@@ -59,7 +59,9 @@ export default class App extends Component {
               exact
               path="entertainment"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="entertainment"
                   pageSize={this.pSize}
                   country={"us"}
@@ -72,7 +74,9 @@ export default class App extends Component {
               exact
               path="health"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="health"
                   pageSize={this.pSize}
                   country={"us"}
@@ -85,7 +89,9 @@ export default class App extends Component {
               exact
               path="science"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="science"
                   pageSize={this.pSize}
                   country={"us"}
@@ -98,7 +104,9 @@ export default class App extends Component {
               exact
               path="sports"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="sports"
                   pageSize={this.pSize}
                   country={"us"}
@@ -111,7 +119,9 @@ export default class App extends Component {
               exact
               path="technology"
               element={
-                <News setProgress={this.setProgress} 
+                <News
+                  setProgress={this.setProgress}
+                  apiKey={this.apiKey}
                   key="technology"
                   pageSize={this.pSize}
                   country={"us"}

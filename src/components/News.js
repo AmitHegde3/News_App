@@ -37,7 +37,7 @@ export class News extends Component {
 
   async updateNews() {
     this.props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a4d0894b6a6f483b940c71817d4b97d6&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     this.props.setProgress(30);
@@ -60,7 +60,7 @@ export class News extends Component {
       this.props.country
     }&category=${
       this.props.category
-    }&apiKey=a4d0894b6a6f483b940c71817d4b97d6&page=${
+    }&apiKey=${this.props.apiKey}&page=${
       this.state.page + 1
     }&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
@@ -76,7 +76,7 @@ export class News extends Component {
 
   // handlePrevLink = async () => {
   //   // this.setState({ loading: true });
-  //   // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a4d0894b6a6f483b940c71817d4b97d6&page=${
+  //   // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${
   //   //   this.state.page - 1
   //   // }&pageSize=${this.props.pageSize}`;
 
@@ -99,7 +99,7 @@ export class News extends Component {
   //   //   this.state.page > Math.ceil(this.state.totalResults / this.props.pageSize)
   //   // ) {
   //   // } else {
-  //   //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a4d0894b6a6f483b940c71817d4b97d6&page=${
+  //   //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${
   //   //     this.state.page + 1
   //   //   }&pageSize=${this.props.pageSize}`;
   //   //   this.setState({ loading: true });
